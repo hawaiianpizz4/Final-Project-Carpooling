@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card">
+            <div class = "card-header">
+                Registrarse
+            </div>
+            <div class="card-body">
+                <form [formGroup]="signUpForm" (submit)="signUp()">
+                    <div class="form-group">
+                        <!-- <input type="email" formControlName="email" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Correo Electronico" required autofocus>
+                        <div class="text-danger"
+                            *ngIf="signUpForm.get('email')?.hasError('required') && signUpForm.get('email')?.touched">
+                                <span>El correo electronico del conductor <strong> es obligatorio</strong></span>
+                        </div> -->
+                        <input type="text" [(ngModel)]="user.email" name="email" formControlName="email" 
+                            class="form-control form-control-lg" placeholder="Email del conductor">
+                            <div class="text-danger"
+                            *ngIf="signUpForm.get('email')?.hasError('required') && signUpForm.get('email')?.touched">
+                                <span>El email del conductor <strong> es obligatorio</strong></span>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- <input type="password"  id="psw" name="psw" pattern="(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}" title="Tiene que contener una letra minúscula, una mayúscula, un número y al menos 8 caracteres. " required> -->
+                        <!-- <input type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Contraseña" pattern="(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}" title="Tiene que contener una letra minúscula, una mayúscula, un número y al menos 8 caracteres." required>
+                        <div class="text-danger"
+                            *ngIf="signUpForm.get('password')?.hasError('required') && signUpForm.get('password')?.touched">
+                                <span>La contraseña del conductor <strong>es obligatoria</strong></span>
+                        </div> -->
+                        <input type="password" [(ngModel)]="user.password" name="password" formControlName="password"
+                            class="form-control form-control-lg" placeholder="Contraseña Conductor">
+                            <div class="text-danger"
+                            *ngIf="signUpForm.get('password')?.hasError('required') && signUpForm.get('password')?.touched">
+                                <span>La clave del conductor<strong>es obligatoria</strong></span>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="cars">Choose a car:</label> -->
+
+                        <!-- <select [(ngModel)]="user.tipo" name="tipo" id="tipo">
+                          <option value="1">Conductor</option>
+                          <option value="2">Pasajero</option>
+                        </select> -->
+
+                        <!-- <select [(ngModel)]="user.tipo" name="tipo" id="tipo" class="form-select" size="3" aria-label="size 3 select example">
+                            <option selected></option>
+                            <option value="1">Conductor</option>
+                            <option value="2">Pasajero</option>
+                        </select> -->
+                        <label for="cars">Seleccione el tipo de Usuario:</label>
+                        <select [(ngModel)]="user.tipo" name="tipo" id="tipo" formControlName="tipo" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option value="1">Conductor</option>
+                            <option value="2">Pasajero</option>
+                        </select>
+                        <!-- <select  [(ngModel)]="user.tipo" name="tipo" id="tipo" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <option selected>Seleccione tipo de Usuario</option>
+                            <option value="1">Conductor</option>
+                            <option value="2">Pasajero</option>
+                          </select> -->
+                    </div>  
+                    <button type="submit" [disabled]="signUpForm.invalid" class="btn btn-primary btn-block">
+                        Registrarse
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>

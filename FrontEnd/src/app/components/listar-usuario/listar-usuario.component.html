@@ -1,0 +1,53 @@
+<div class="container-general">
+  <div class="container1">
+    
+    <!--header area start-->
+    <!--header area end-->
+    <!--sidebar start-->
+    
+       <div class="sidebar">
+        <a href="#"><i class="fas fa-info"></i><span>Información</span></a>
+    <a routerLink="/crear-producto" routerLinkActive="active"><i class="fas fa-calendar-plus"></i><span>Crear Ruta</span></a>
+    <a  routerLink="/listar-producto" routerLinkActive="active"><i class="fas fa-car"></i><span>Listado de Rutas</span></a>
+    <a routerLink="/listar-producto-edicion" routerLinkActive="active"><i class="fas fa-edit"></i><span>Editar Listado de Rutas</span></a>
+    <!-- <a href="#"><i class="fas fa-user-plus"></i><span>Crear Usuario</span></a> -->
+    <a routerLink="/listar-usuario"><i class="fas fa-users"></i><span>Listado de Usuarios</span></a>
+        
+       <!--sidebar end-->
+       </div>
+  
+  </div>
+
+<div class="container2">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">Listado de Usuario</span>
+                    <!-- <button class="btn btn-success float-end" routerLink="/usuario"><i class="fas fa-user-plus"></i></button> -->
+                    <table *ngIf="listUsuarios.length > 0" class="table table-striped mt-3">
+                        <thead>
+                          <tr>
+                            <th scope="col">Email Persona</th>
+                            <th scope="col">Password Persona</th>
+                            <th scope="col">Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let persona of listUsuarios">
+                          <td>{{persona.email}}</td>
+                          <td>{{persona.password}}</td>
+                          <td>
+                            <i [routerLink]="['/editar-usuario', persona._id]" class="fas fa-user-edit"></i>
+                            <i (click)="eliminarUsuario(persona._id)" class="fas fa-user-times text-danger"></i>
+                          </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <h5 style="text-align: start; margin-top: 10px;" *ngIf="listUsuarios.length == 0">No hay usuarios para mostrar</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

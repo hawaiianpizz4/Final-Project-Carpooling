@@ -1,0 +1,24 @@
+{
+  "name": "productoapi",
+  "version": "1.0.0",
+  "description": "MEAN API",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon .",
+    "test": "mocha --timeout 10000 test/api.test.js"
+  },
+  "author": "Josué Morales",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^12.0.3",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^9.2.0",
+    "mongoose": "^6.1.6",
+    "supertest": "^6.2.2"
+  }
+}
